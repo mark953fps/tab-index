@@ -40,6 +40,7 @@ export class AppComponent implements OnInit {
 
         default:
           this.tabIndex = 1;
+          document.getElementById('tabindex1').focus();
       }
     }
   }
