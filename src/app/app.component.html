@@ -1,26 +1,34 @@
-import { Component, VERSION, OnInit, HostListener } from '@angular/core';
+<div class="row">
+  <div class="col">
+    <input type="text" id="tabindex1" value="mark" (focus)="test()" />
+  </div>
+</div>
+<br />
 
-@Component({
-  selector: 'my-app',
-  templateUrl: './app.component.html',
-  styleUrls: ['./app.component.css'],
-})
-export class AppComponent implements OnInit {
-  name = 'Angular ' + VERSION.major;
+<div class="row">
+  <div class="col">
+    <input type="text" id="tabindex3" value="mark" />
+  </div>
+</div>
+<br />
 
-  @HostListener('document: keydown', ['$event']) onKeyDown(e: any) {
-    console.log(e, 'haha');
-    let key = e.key;
+<div class="row">
+  <div class="col">
+    <textarea name="" id="tabindex2" cols="30" rows="10"></textarea>
+  </div>
+</div>
+<br />
 
-    if (key === 'Tab') {
-      e.preventDefault();
-      document.getElementById('tabindex4').focus();
-    }
-  }
+<div class="row">
+  <div class="col">
+    <input type="text" id="tabindex5" value="mark" />
+  </div>
+</div>
+<br />
 
-  public ngOnInit() {}
-
-  test() {
-    console.log('hello');
-  }
-}
+<div class="row">
+  <div class="col">
+    <input type="text" id="tabindex4" value="mark" />
+  </div>
+</div>
+<br />
