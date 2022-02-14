@@ -1,4 +1,5 @@
 import { Component, VERSION, OnInit, HostListener } from '@angular/core';
+import $ from 'jquery';
 
 @Component({
   selector: 'my-app',
@@ -15,37 +16,46 @@ export class AppComponent implements OnInit {
 
     if (key === 'Tab') {
       this.tabIndex++;
+      console.log('event');
       e.preventDefault();
 
-      switch (this.tabIndex) {
-        case 1:
-          document.getElementById('tabindex1').focus();
-          break;
-
-        case 2:
-          document.getElementById('tabindex2').focus();
-          break;
-
-        case 3:
-          document.getElementById('tabindex3').focus();
-          break;
-
-        case 4:
-          document.getElementById('tabindex4').focus();
-          break;
-
-        case 5:
-          document.getElementById('tabindex5').focus();
-          break;
-
-        default:
-          this.tabIndex = 1;
-          document.getElementById('tabindex1').focus();
+      for (let i = 1; i <= 5; i++) {
+        if (this.tabIndex === i) {
+          $(`[tabIndexControl=${i}]`).focus();
+        }
       }
+
+      // switch (this.tabIndex) {
+      //   case 1:
+      //     document.getElementById('tabindex1').focus();
+      //     break;
+
+      //   case 2:
+      //     document.getElementById('tabindex2').focus();
+      //     break;
+
+      //   case 3:
+      //     document.getElementById('tabindex3').focus();
+      //     break;
+
+      //   case 4:
+      //     document.getElementById('tabindex4').focus();
+      //     break;
+
+      //   case 5:
+      //     document.getElementById('tabindex5').focus();
+      //     break;
+
+      //   default:
+      //     this.tabIndex = 1;
+      //     document.getElementById('tabindex1').focus();
+      // }
     }
   }
 
-  public ngOnInit() {}
+  public ngOnInit() {
+    console.log($);
+  }
 
   focusIndex(tabIndex: any) {
     this.tabIndex = tabIndex;
